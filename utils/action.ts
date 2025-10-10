@@ -19,17 +19,17 @@ export const addSubscriber = async (formData: FormData) => {
       },
     });
     return {
-      successMessage: `Success! ${email} was successfully subscribed to our newsletter!`,
+      successMessage: `Success! ${email} was successfully subscribed to our waitlist!`,
     };
   } catch (error: any) {
     console.log(JSON.stringify(error));
     if (error.response.body.title === "Member Exists") {
       return {
-        errorMessage: `Ooops! It looks like the email ${email} is already subscribed to our newsletter!`,
+        errorMessage: `Ooops! It looks like the email ${email} is already subscribed to our waitlist!`,
       };
     } else {
       return {
-        errorMessage: `Ooops! There was a problem subscribing ${email} to our newsletter!`,
+        errorMessage: `Ooops! There was a problem subscribing ${email} to our waitlist!`,
       };
     }
   }
