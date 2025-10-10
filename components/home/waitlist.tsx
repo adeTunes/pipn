@@ -143,7 +143,7 @@ export const Waitlist = () => {
                 viewport={{ once: true }}
                 className="text-[#616161] text-xl font-semibold self-center md:text-3xl"
               >
-                Contact Form
+                Waitlist Form
               </motion.h5>
 
               <div className="space-y-6 w-full">
