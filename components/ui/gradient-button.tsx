@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { Loader2 } from "lucide-react";
 
 interface GradientButtonProps {
   children?: React.ReactNode;
@@ -6,6 +7,9 @@ interface GradientButtonProps {
   className?: string;
   rootClassName?: string;
   radius?: string;
+  type?: string;
+  loading?: boolean;
+  disabled?: boolean;
   animation?: any;
 }
 
@@ -16,6 +20,8 @@ export function GradientButton({
   rootClassName = "",
   radius = "",
   animation,
+  type,
+  loading,
 }: GradientButtonProps) {
   const content = (
     <>
@@ -27,8 +33,10 @@ export function GradientButton({
         onClick={onClick}
         style={{ borderRadius: radius }}
         className={`relative cursor-pointer bg-black/[80%] leading-none flex items-center justify-center text-white transition-transform duration-200 z-10 ${className}`}
+        type={type as any}
+        disabled={loading}
       >
-        {children}
+        {loading ? <Loader2 className="animate-spin" /> : children}
       </button>
 
       <style jsx>{`
@@ -53,7 +61,7 @@ export function GradientButton({
       <motion.div
         {...animation}
         style={{ borderRadius: radius }}
-        className={`relative hover:scale-[1.02] cursor-pointer inline-flex p-[1px] overflow-hidden group ${rootClassName}`}
+        className={`relative ${!loading ? "hover:scale-[1.02]" : ""} cursor-pointer inline-flex p-[1px] overflow-hidden group ${rootClassName}`}
       >
         {content}
       </motion.div>
@@ -61,7 +69,7 @@ export function GradientButton({
   return (
     <div
       style={{ borderRadius: radius }}
-      className={`relative hover:scale-[1.02] cursor-pointer inline-flex p-[1px] overflow-hidden group ${rootClassName}`}
+      className={`relative ${!loading ? "hover:scale-[1.02]" : ""} cursor-pointer inline-flex p-[1px] overflow-hidden group ${rootClassName}`}
     >
       {content}
     </div>

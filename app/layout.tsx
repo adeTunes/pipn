@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Prompt, Potta_One } from "next/font/google";
 import "./globals.css";
+import { Toaster } from "@/components/ui";
 
 const prompt = Prompt({
   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
@@ -9,7 +10,7 @@ const prompt = Prompt({
 const pottaOne = Potta_One({
   weight: "400",
   subsets: ["latin"],
-  variable: "--font-potta"
+  variable: "--font-potta",
 });
 
 export const metadata: Metadata = {
@@ -24,7 +25,22 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${prompt.className} ${pottaOne.variable} antialiased`}>{children}</body>
+      <body className={`${prompt.className} ${pottaOne.variable} antialiased`}>
+        <Toaster
+          position="top-right"
+          expand={true}
+          richColors={false}
+          closeButton={true}
+          toastOptions={{
+            style: {
+              border: "none",
+              boxShadow:
+                "0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1)",
+            },
+          }}
+        />
+        {children}
+      </body>
     </html>
   );
 }
