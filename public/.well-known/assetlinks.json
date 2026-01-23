@@ -1,0 +1,12 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "app.pipn",
+      "sha256_cert_fingerprints": [
+        "48:05:E3:2D:4B:9B:3B:72:28:AD:A7:C3:DB:C5:63:98:50:DF:6B:28:51:3B:DD:DA:C6:0B:0C:F8:1A:BD:2B:15"
+      ]
+    }
+  }
+]
