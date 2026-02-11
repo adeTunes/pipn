@@ -15,7 +15,7 @@ const pottaOne = Potta_One({
 
 export const metadata: Metadata = {
   title: "PiPn",
-  description: "Join a global trading community. Share ideas, offer services, and build credibility — all in one platform.",
+  description: "Join a global trading community. Share ideas, offer services, and build credibility - all in one platform."
 };
 
 export default function RootLayout({
