@@ -42,17 +42,21 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-export default function PostPage() {
+import { ClientRedirect } from "./ClientRedirect";
+
+export default async function PostPage({ params }: Props) {
+  const { id: postId } = await params;
+
   return (
     <div className="min-h-screen bg-black text-white flex flex-col items-center justify-center p-4">
-      <h1 className="text-2xl font-bold mb-4">
-        You&apos;re being redirected to the PiPn app...
+      <h1 className="text-3xl font-bold mb-4 text-center">
+        Opening in PiPn...
       </h1>
-      <p className="text-gray-400 text-center max-w-md">
-        This post is best viewed in the PiPn mobile app. Please open this link
-        on your mobile device to view the full content and interact with the
-        community.
+      <p className="text-gray-400 text-center max-w-md text-lg">
+        This post is best viewed in the PiPn mobile app.
       </p>
+
+      <ClientRedirect postId={postId} />
     </div>
   );
 }
